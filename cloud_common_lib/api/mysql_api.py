@@ -11,7 +11,7 @@ class MysqlAPI:
         self.session = self.get_session()
 
     @staticmethod
-    def get_session(connection_str, pool_recycle):
+    def get_session(connection_str, pool_recycle=DEFAULT_POOL_RECYCLE):
         db_engine = create_engine(connection_str, pool_recycle=pool_recycle)
         db_session_maker = sessionmaker(bind=db_engine)
         session = db_session_maker()
